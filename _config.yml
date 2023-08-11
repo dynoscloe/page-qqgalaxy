@@ -1,0 +1,86 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+remote_theme: chriskyfung/amp-affiliately-jekyll-theme
+name: "QQGALAXY"
+title: "Situs Judi Slot Online Asia Bet Gaming Jackpot Terbesar 2023"
+email: your-email@example.com
+keywords: "QQGALAXY"
+description: >- # this means to ignore newlines until "baseurl:"
+  QQGALAXY situs slot online resmi AsiaBet gaming terbaik dan terpercaya jackpot terbesar 2023, gacor gampang menang, bonus game berhadiah 90 juta.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://qqgalaxy.openxcplatform.com" # the base hostname & protocol for your site, e.g. http://example.com
+favicon: 'assets/images/favicon.ico'
+logo: 'assets/images/logo.png'
+promo_desktop: 'https://qqgalaxycc.com/mobile/content/images/banner/cache/8e812f6b245642bf94355f3ca826db76.jpg'
+promo_mobile: 'https://qqgalaxycc.com/mobile/content/images/banner/cache/8e812f6b245642bf94355f3ca826db76.jpg'
+whatsapp: 'https://wa.me/6281384218101'
+telegram: 'https://t.me/OFFICIALQQGALAXY'
+skype: 'skype:QQGalaxy?chat'
+livechat: 'https://direct.lc.chat/11674920/'
+signin: 'https://qqgalaxycc.com/mobile/id-ID/Home'
+signup: 'https://qqgalaxycc.com/mobile/id-ID/Member/Register'
+dlapk: 'https://qqgalaxycc.com/mobile/id-ID/MobileExplore'
+
+timezone: 'Asia/Bangkok'
+twitter_username: jekyllrb
+github_username:  jekyll
+
+target_blank: false
+anchor_link: true
+
+defaults:
+  - 
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Build settings
+#theme: minima
+
+# Copyright Start Year
+copyright: 
+  prefix: 
+  ownership: QQGALAXY
+  link: /
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

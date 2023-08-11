@@ -1,0 +1,182 @@
+body {
+  background: #d8d8d8;
+  font-size:13px;
+  color:#000;
+}
+
+.navbar-brand {
+  margin: 0 0 0 1rem;
+}
+h1 {
+  font-size: 2rem;
+}
+a {
+  color: #ab58e4;
+}
+.mediumnavigation {
+  background: #ebecee;
+  border-bottom: 3px solid #ebecee;
+  padding: 0.75rem 0;
+}
+.navbar-toggleable-md .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(254 219 97);
+}
+.site-content {
+  padding-top: 0;
+  margin-top: 0;
+}
+.fa-user {
+  color: rgb(254 219 97);
+}
+@media (max-width: 992px) {
+  .container {
+    width: 100%;
+    padding-left:0;
+    padding-right:0;
+  }
+  .featured-posts {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+}
+@media (min-width: 992px) {
+  .navbar-toggleable-md .navbar-toggler {
+    display: block;
+  }
+  .intro {
+    padding: 12rem 0;
+  }
+}
+.navbar-toggler-right {
+  right: 0;
+}
+
+.footer {
+  color:#fff;
+}
+
+.footer-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid transparent;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler i::before {
+  font-size: 32px;
+  display: block;
+}
+.footer-menu i::before {
+  display: block;
+  font-size: 24px;
+}
+
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.selectors,
+.block {
+  height: 100%;
+  width: 100%;
+}
+
+.selectors a {
+  border: 0;
+  border-radius: 0;
+  background-color: #ebecee;
+  color: #ab58e4;
+  width: 25%;
+  margin-left: 0;
+}
+
+.selectors a:active {
+  border: 0;
+}
+
+.selectors a:focus {
+  border: 0;
+  outline: 0;
+  box-shadow: 0 0 0 0px;
+}
+
+.active,
+.selector-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.inactive {
+  display: none;
+}
+.selector-holder i {
+  margin: 1rem 0 0;
+}
+
+/* Colors of the buttons*/
+
+.selectors a:hover,
+.selectors a:active,
+.selectors a:focus,
+.navbar-toggler a:hover,
+.navbar-toggler a:active,
+.navbar-toggler a:focus {
+  color: #c90;
+}
+
+.navbar-toggleable-md .navbar-toggler {
+  display: flex;
+}
+.navbar-toggler-right li {
+  list-style: none;
+  padding: 0 .6rem;
+}
+
+.main-content {
+  margin: 1rem 0;
+}
+.posttitle {
+  color: #000;
+}
+.article-post,
+.link-dark {
+  color: #000;
+  font-size:14px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+.action-grid a {
+  padding: 10px;
+  margin: 3px 0;
+  font-size: 20px;
+}
+
+.action-login {
+  background: #c99d6e;
+  color:#fff;
+}
+.action-register {
+  background: #633c8b;
+  color:#fff;
+}

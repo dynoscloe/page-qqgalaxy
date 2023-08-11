@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{page.title}}</title>
+    <meta name="keywords" content="{{site.keywords}}"/>
+    {% seo title=false %}
+    <link as="script" href="https://cdn.ampproject.org/v0.js" rel="preload">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-font" src="https://cdn.ampproject.org/v0/amp-font-0.1.js"></script>
+    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    {%- if layout.amp.addthis or page.amp.addthis -%}
+    <script async custom-element="amp-addthis" src="https://cdn.ampproject.org/v0/amp-addthis-0.1.js"></script>
+    {%- endif -%}
+    {%- if layout.amp.iframe or page.amp.iframe or true -%}
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    {%- endif -%}
+    {%- if layout.amp.script or page.amp.script -%}
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    {%- endif -%}
+    {%- if page.amp.youtube -%}
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    {%- endif -%}
+    {%- if page.amp.gist -%}
+    <script async custom-element="amp-gist" src="https://cdn.ampproject.org/v0/amp-gist-0.1.js"></script>
+    {%- endif -%}
+
+    <link rel="icon" href="{{ site.favicon | relative_url }}">
+    <link rel="preconnect dns-prefetch" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="{{ site.logo | relative_url }}" as="image" crossorigin>
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.13.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.13.1/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.13.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" crossorigin>
+
+    {%- if page.image.path -%}
+      {%- assign img_ext = page.image.path | split: "." | last -%}
+      {%- if img_ext == "svg" -%}
+    <link rel="preload" href="{{ page.image.path | relative_url }}" as="image" crossorigin>
+      {%- else -%}
+        {%- assign img_name = page.image.path | remove: img_ext -%}
+    <link rel="preload" href="{{ img_name }}.webp" as="image" type="image/webp" crossorigin>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if jekyll.environment == 'production' -%}
+      {%- assign adtest_status = '' -%}
+    {%- else -%}
+      {%- assign adtest_status = 'data-adtest="on"' -%}
+    {%- endif -%}
+    {%- if page.custom_head -%}
+    {{ page.custom_head }}
+    {%- endif -%}
+
+    <style amp-custom>
+      {% include css/amp-bs4.min.css %}
+      {% include css/amp-theme.min.css %}
+    {%- if site.anchor_link != false -%}
+      {% include css/amp-anchor-link.min.css %}
+    {%- endif -%}
+      {% include css/amp-custom.min.css %}
+      {% include css/amp-footer.min.css %}
+      {% include css/amp-bmc-button.min.css %}
+      {% include css/amp-responsive.min.css %}
+  
+    {%- if layout.css.custom -%}
+      {{ layout.css.custom }}
+    {%- endif -%}
+    {%- if page.css.custom -%}
+      {{ page.css.custom }}
+    {%- endif -%}
+    {% include css/custom.css %}
+    </style>
+  </head>
+
+  {%- capture layout -%}{% if page.layout %}layout-{{ page.layout }}{% endif %}{%- endcapture -%}
+
+  <body class="{{ layout }}" data-amp-auto-lightbox-disable>
+    {%- if site.gtm -%}
+    <!-- Google Tag Manager -->
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{ site.gtm }}&gtm.url=SOURCE_URL"
+      data-credentials="include" style="width:1px;height:1px;"></amp-analytics>
+    {%- endif -%}
+    {%- if site.adsense.client_id and site.adsense.auto_ads != false -%}
+    <amp-auto-ads type="adsense" data-ad-client="{{ site.adsense.client_id }}" {{ adtest_status }} data-full-width>
+      <div placeholder>Loading Ads...</div>
+      <div fallback></div>
+      <div overflow></div>
+    </amp-auto-ads>
+    {%- endif -%}
+
+    <!-- Begin Menu Navigation -->
+    <nav amp-fx="float-in-top" id="navbar" class="navbar navbar-toggleable-md navbar-light fixed-top mediumnavigation" aria-label="primary">
+
+      <div class="container" role="menu">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/" role="menuitem" title="{{site.title}}">
+          <amp-img src="{{ site.logo | relative_url }}" alt="site logo" height="36" width="140" style="width:140px;height:36px;" noloading>
+            <amp-img fallback src="{{ site.logo | relative_url }}" alt="site logo" height="36" width="140" noloading></amp-img>
+          </amp-img>
+        </a>
+        {%- if site.baseurl != "" and site.baseurl != "/" and site.pages.size > 1 -%}
+        {%- assign maxLength = site.nav.local.max_title_length | default: 30 -%}
+        <div class="navbar-nav">
+          <div class="nav-item">
+            <a class="nav-link" href="{{ "/" | relative_url }}" role="menuitem" title="↰ Top Page" aria-label="Go to the Top Page of {{ site.title }}">{{ site.title | truncate: maxLength }} <i class="fas fa-anchor" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        {%- endif -%}
+        <!-- Begin Menu -->
+        <ul class="navbar-toggler navbar-toggler-right">
+          <li><a href="{{ site.whatsapp }}" rel="nofollow" title="Whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a></li>
+          <li><a href="{{ site.telegram }}" rel="nofollow" title="Telegram">
+            <i class="fab fa-telegram"></i>
+          </a></li>
+          <li><a href="{{ site.skype }}" rel="nofollow" title="Skype">
+            <i class="fab fa-skype"></i>
+          </a></li>
+        </ul>
+        
+        <!-- End Menu -->
+      </div>
+    </nav>
+
+    <!-- End Menu Navigation -->
+
+    <!--
+    Template Name:Affiliates
+    Copyright:WowThemes.net,https://www.wowthemes.net
+    Version:1.0.2
+    License: https://www.wowthemes.net/freebies-license/
+    -->
+
+    <div class="site-content">
+      <div class="container">
+        <!-- Content -->
+        <div class="main-content">
+          <main>
+            <amp-img 
+            layout=responsive
+            width="560"
+            height="280"
+            src="{{ site.promo_mobile }}"
+            alt="{{site.name}}">
+        </amp-img>
+        <div class="action-grid">
+          <a href="{{site.signin}}" rel="nofollow" class="action-login">LOGIN</a>
+          <a href="{{site.signup}}" rel="nofollow" class="action-register">DAFTAR</a>
+        </div>
+        
+        <!-- Featured
+          ================================================== -->
+          <section class="featured-posts">
+            
+            <div class="row listfeaturedtag">
+              
+              {{ content }}
+              
+            </div>
+            
+          </section>
+          
+        </main>
+        </div>
+      </div>
+
+      <footer class="mt-auto" style="margin-bottom:60px">
+        <section class="footer">
+          <div class="container">
+
+            <div class="footer-bar">
+              <p class="float-lg-left">
+                {% include footer/copyright-notice.html %}
+              </p>
+              <p class="float-lg-right">Powered by <a aria-label="theme credit"
+                href="https://www.google.com" rel="noopener noreferrer">Google AMP</a> |
+                {% include footer/footer-right-text.html %}
+              </p>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </sect>
+      </footer>
+      <!-- End Footer -->
+
+      
+    </div><!-- /.site-content -->
+
+    <div class="footer-menu">
+      <div id="buttonGroup" class="btn-group selectors" role="group" aria-label="Basic example">
+         <a href="/">
+            <div class="selector-holder">
+               <i class="fa fa-home">Home</i>
+            </div>
+         </a>
+         <a href="{{site.signup}}" rel="nofollow">
+          <div class="selector-holder">
+             <i class="fas fa-clipboard">Register</i>
+          </div>
+       </a>
+         <a href="{{site.dlapk}}" rel="nofollow">
+            <div class="selector-holder">
+              <i class="fa fa-download">Mobile App</i>
+            </div>
+         </a>
+         <a href="{{site.livechat}}">
+            <div class="selector-holder">
+              <i class="far fa-comment-alt">Livechat</i>
+            </div>
+         </a>
+      </div>
+   </div>
+
+    {%- if site.google_analytics -%}
+    <!-- Configure analytics to use gtag -->
+    <amp-analytics type="gtag" data-credentials="include" style="width:1px;height:1px;">
+      <script type="application/json">
+        {
+          "vars": {
+            "gtag_id": "{{ site.google_analytics }}",
+            "config": {
+              "{{ site.google_analytics }}": { "groups": "default" }
+            }
+          },
+          "triggers": {
+            "trackAnchorClicks": {
+              "selector": "a:not([href^='{{ site.url }}'])",
+              "on": "click",
+              "request": "event",
+              "vars": {
+                "event_category": "External Link",
+                "event_name": "${eventLabel}",
+                "event_label": "{{ page.url }}",
+                "method": "Google"
+              }
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    {%- endif -%}
+    {%- if site.ga4 -%}
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+      <script type="application/json">
+      {
+        "vars": {
+          "GA4_MEASUREMENT_ID": "{{ site.ga4 }}",
+          "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+          "DEFAULT_PAGEVIEW_ENABLED": true,    
+          "GOOGLE_CONSENT_ENABLED": false,
+          "WEBVITALS_TRACKING": false,
+          "PERFORMANCE_TIMING_TRACKING": false,
+          "SEND_DOUBLECLICK_BEACON": false
+        }
+      }
+      </script>
+    </amp-analytics>
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+      <script type="application/json">
+        {
+          "vars": {
+            "GA4_MEASUREMENT_ID": "{{ site.ga4 }}",
+            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+            "DEFAULT_PAGEVIEW_ENABLED": false,    
+            "GOOGLE_CONSENT_ENABLED": false,
+            "WEBVITALS_TRACKING": false,
+            "PERFORMANCE_TIMING_TRACKING": false,
+            "SEND_DOUBLECLICK_BEACON": false
+          },
+          "triggers": {
+            "trackAnchorClicks": {
+              "on": "click",
+              "selector": "a:not([href^='{{ site.url }}'])",
+              "request": "ga4Event",
+              "vars": {
+                "ga4_event_name": "outgoing_click"
+              },
+              "extraUrlParams": {
+                "event__str_outgoing_url": "${eventLabel}"
+              }
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
+    
+    {%- endif -%}
+
+    <amp-image-lightbox id="lightbox1" layout="nodisplay" data-close-button-aria-label="Close" hidden="hidden"></amp-image-lightbox>
+
+  </body>
+</html>
